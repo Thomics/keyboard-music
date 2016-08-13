@@ -11,10 +11,7 @@
 
     var vm = this;
 
-    //vm.getSound = KeyboardService.getSound;
-
     vm.sound;
-
 
 
     function play() {
@@ -24,10 +21,10 @@
     }
 
     $(document).keypress(function(key) {
+      console.log(key.which);
       vm.sound = KeyboardService.getSound([key.which]);
       play();
     });
-
 
 
   }
