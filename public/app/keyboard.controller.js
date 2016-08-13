@@ -16,25 +16,16 @@
     vm.sound;
 
 
+
     function play() {
       var audio = document.getElementById("audio");
+      document.getElementById("audio").src = vm.sound;
       audio.play();
-
     }
 
     $(document).keypress(function(key) {
-      console.log(key.which);
-
-      vm.sound = KeyboardService.sound[key.which];
-
-      console.log(vm.sound);
-
-      if(key.which == 49) {
-
-        play();
-
-      }
-
+      vm.sound = KeyboardService.getSound([key.which]);
+      play();
     });
 
 
