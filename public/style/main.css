@@ -1,0 +1,9 @@
+.key-box {
+  background: #00ff00;
+  color: #ffffff;
+  height: 50px;
+  line-height: 50px;
+  padding: 20px;
+  vertical-align: middle;
+  width: 50px;
+}
