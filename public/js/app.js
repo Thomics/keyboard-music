@@ -36,7 +36,7 @@ ion.sound({
   ],
 
   //general configuration
-  path: "sounds/",
+  path: "public/sounds/",
   preload: true,
   multiplay: true,
   volume: 1
