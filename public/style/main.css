@@ -12,12 +12,22 @@
   margin-bottom: 1px;
 }
 
+.num-row, .asdf-row {
+  margin-left: -50px;
+}
+
+.zxcv-row {
+  margin-left: 25px;
+}
 
 .key{
   height: 100px;
   width: 100px;
   float: left;
   color: #ffffff;
+  text-align: center;
+  line-height: 100px;
+  vertical-align: middle;
 }
 
 .key:hover {
@@ -25,9 +35,7 @@
   filter: brightness(.9);
 }
 
-.key p {
-  text-align: center;
-}
+
 
 /*Number Keys 1 - 0*/
 #one    { background-color: #83d0c9; }

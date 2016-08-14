@@ -32,39 +32,44 @@ $(document).ready(function() {
 
   ion.sound({
     sounds: [
-      {name: "drumstick", alias: '#zero'},  //key: 0, ascii: 48
-      {name: "bongo1",    alias: '#one'},   //key: 1, ascii: 49
-      {name: "bongo2",    alias: '#two'},   //key: 2, ascii: 50
-      {name: "bongo3",    alias: '#three'}, //key: 3, ascii: 51
-      {name: "bongo4",    alias: '#four'},  //key: 4, ascii: 52
-      {name: "bongo5",    alias: '#five'},  //key: 5, ascii: 53
-      {name: "snare",     alias: '#six'},   //key: 6, ascii: 54
-      {name: "crash",     alias: '#seven'}, //key: 7, ascii: 55
-      {name: "high-hat",  alias: '#eight'}, //key: 8, ascii: 56
-      {name: "triangle",  alias: '#nine'},  //key: 9, ascii: 57
-      {name: "f-major",   alias: '#q'},     //key: q, ascii: 113
-      {name: "fs-major",  alias: '#w'},     //key: w, ascii: 119
-      {name: "g-major",   alias: '#e'},     //key: e, ascii: 101
-      {name: "gs-major",  alias: '#r'},     //key: r, ascii: 114
-      {name: "a-major",   alias: '#t'},     //key: t, ascii: 116
-      {name: "as-major",  alias: '#y'},     //key: y, ascii: 121
-      {name: "b-major",   alias: '#u'},     //key: u, ascii: 117
-      {name: "c-major",   alias: '#i'},     //key: i, ascii: 105
-      {name: "cs-major",  alias: '#o'},     //key: o, ascii: 111
-      {name: "d-major",   alias: '#p'},     //key: p, ascii: 112
-      {name: "ds-major",  alias: '#lbracket'}, //key: [, ascii: 91
-      {name: "e-major",   alias: '#rbracket'}, //key: ], ascii: 93
-      {name: "f-minor",   alias: '#a'},     //key: a, ascii: 97
-      {name: "fs-minor",  alias: '#s'},     //key: s, ascii: 115
-      {name: "g-minor",   alias: '#d'},     //key: d, ascii: 100
-      {name: "gs-minor",  alias: '#f'},     //key: f, ascii: 102
-      {name: "a-minor",   alias: '#g'},     //key: g, ascii: 103
-      {name: "as-minor",  alias: '#h'},     //key: h, ascii: 104
-      {name: "b-minor",   alias: '#j'},     //key: j, ascii: 106
-      {name: "c-minor",   alias: '#k'},     //key: k, ascii: 107
-      {name: "cs-minor",  alias: '#l'},     //key: l, ascii: 108
-      {name: "d-minor",   alias: '#colon'}, //key: ;, ascii: 59
-      {name: "ds-minor",  alias: '#apostrophe'} //key: ', ascii: 39
+      //Row 1 - 0
+      {name: "Perc1",     alias: '#zero'},  //key: 0, ascii: 48
+      {name: "Kick1",    alias: '#one'},   //key: 1, ascii: 49
+      {name: "Kick2",    alias: '#two'},   //key: 2, ascii: 50
+      {name: "Kick3",    alias: '#three'}, //key: 3, ascii: 51
+      {name: "Kick4",    alias: '#four'},  //key: 4, ascii: 52
+      {name: "Clap1",    alias: '#five'},  //key: 5, ascii: 53
+      {name: "Clap2",    alias: '#six'},   //key: 6, ascii: 54
+      {name: "Clap3",    alias: '#seven'}, //key: 7, ascii: 55
+      {name: "Clap4",    alias: '#eight'}, //key: 8, ascii: 56
+      {name: "Perc10", alias: '#nine'},  //key: 9, ascii: 57
+
+      //Row qwerty
+      {name: "Perc9",   alias: '#q'},     //key: q, ascii: 113
+      {name: "Perc7",   alias: '#w'},     //key: w, ascii: 119
+      {name: "Perc3",   alias: '#e'},     //key: e, ascii: 101
+      {name: "Perc4",   alias: '#r'},     //key: r, ascii: 114
+      {name: "Perc6",   alias: '#t'},     //key: t, ascii: 116
+      {name: "Perc8",   alias: '#y'},     //key: y, ascii: 121
+      {name: "Perc2",   alias: '#u'},     //key: u, ascii: 117
+      {name: "Perc5",   alias: '#i'},     //key: i, ascii: 105
+      {name: "triangle",   alias: '#o'},     //key: o, ascii: 111
+      {name: "snap", alias: '#p'},     //key: p, ascii: 112
+
+      //Row asdf
+      {name: "",  alias: '#lbracket'}, //key: [, ascii: 91
+      {name: "",   alias: '#rbracket'}, //key: ], ascii: 93
+      {name: "",   alias: '#a'},     //key: a, ascii: 97
+      {name: "",  alias: '#s'},     //key: s, ascii: 115
+      {name: "",   alias: '#d'},     //key: d, ascii: 100
+      {name: "",  alias: '#f'},     //key: f, ascii: 102
+      {name: "",   alias: '#g'},     //key: g, ascii: 103
+      {name: "",  alias: '#h'},     //key: h, ascii: 104
+      {name: "",   alias: '#j'},     //key: j, ascii: 106
+      {name: "",   alias: '#k'},     //key: k, ascii: 107
+      {name: "",  alias: '#l'},     //key: l, ascii: 108
+      {name: "",   alias: '#colon'}, //key: ;, ascii: 59
+      {name: "",  alias: '#apostrophe'} //key: ', ascii: 39
     ],
 
       //general configuration
@@ -112,40 +117,3 @@ $(document).ready(function() {
     '59'  : '#colon',
     '39'  : '#apostrophe'
   };
-
-
-//var keyClasses = {
-//  '#one'  : '49',
-//  '#two'  : '50',
-//  '#three': '51',
-//  '#four' : '52',
-//  '#five' : '53',
-//  '#six'  : '54',
-//  '#seven': '55',
-//  '#eight': '56',
-//  '#nine' : '57',
-//  '#zero' : '48',
-//  '#q'    : '113',
-//  '#w'    : '119',
-//  '#e'    : '101',
-//  '#r'    : '114',
-//  '#t'    : '116',
-//  '#y'    : '121',
-//  '#u'    : '117',
-//  '#i'    : '105',
-//  '#o'    : '111',
-//  '#p'    : '112',
-//  '#lbracket' : '91',
-//  '#rbracket' : '93',
-//  '#a'    : '97',
-//  '#s'    : '115',
-//  '#d'    : '100',
-//  '#f'    : '102',
-//  '#g'    : '103',
-//  '#h'    : '104',
-//  '#j'    : '106',
-//  '#k'    : '107',
-//  '#l'    : '108',
-//  '#colon' : '59',
-//  '#apostrophe' : '39'
-//};
