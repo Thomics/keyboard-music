@@ -18,42 +18,22 @@
   color: #ffffff;
 }
 
-.one  {
-  background-color: #83d0c9;
+.key:hover {
+  -webkit-filter: opacity(.8);
+  filter: opacity(.8);
+  /*width: 125px;*/
+  /*height: calc(100% + 25px);*/
 }
 
-.two  {
-  background-color: #75cac2;
-}
+/*Number Keys 1 - 0*/
+.one    { background-color: #83d0c9; }
+.two    { background-color: #75cac2; }
+.three  { background-color: #68c4bc; }
+.four   { background-color: #5bbeb5; }
+.five   { background-color: #4eb8af; }
+.six    { background-color: #41b3a8; }
+.seven  { background-color: #34ada2; }
+.eight  { background-color: #27a79b; }
+.nine   { background-color: #1aa195; }
+.zero   { background-color: #0d9b8e; }
 
-.three  {
-  background-color: #68c4bc;
-}
-
-.four  {
-  background-color: #5bbeb5;
-}
-
-.five  {
-  background-color: #4eb8af;
-}
-
-.six  {
-  background-color: #41b3a8;
-}
-
-.seven  {
-  background-color: #34ada2;
-}
-
-.eight  {
-  background-color: #27a79b;
-}
-
-.nine  {
-  background-color: #1aa195;
-}
-
-.zero  {
-  background-color: #0d9b8e;
-}
