@@ -35,7 +35,18 @@
       '111' : 'sounds/guitar/cs-major.wav',  //o
       '112' : 'sounds/guitar/d-major.wav', //p
       '91' : 'sounds/guitar/ds-major.wav',   //[
-      '93' : 'sounds/guitar/e1-major.wav'   //]
+      '93' : 'sounds/guitar/e-major.wav',   //]
+      '97' : 'sounds/guitar/f-minor.wav',   //a
+      '115' : 'sounds/guitar/fs-minor.wav',   //s
+      '100' : 'sounds/guitar/g-minor.wav',   //d
+      '102' : 'sounds/guitar/gs-minor.wav',   //f
+      '103' : 'sounds/guitar/a-minor.wav',   //g
+      '104' : 'sounds/guitar/as-minor.wav',   //h
+      '106' : 'sounds/guitar/b-minor.wav',   //j
+      '107' : 'sounds/guitar/c-minor.wav',   //k
+      '108' : 'sounds/guitar/cs-minor.wav',   //l
+      '59' : 'sounds/guitar/d-minor.wav',   //;
+      '39' : 'sounds/guitar/ds-minor.wav'   //'
 
     };
 
