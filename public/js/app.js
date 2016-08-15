@@ -33,7 +33,7 @@ $(document).ready(function() {
   ion.sound({
     sounds: [
       //Row 1 - 0
-      {name: "Perc1",     alias: '#zero'},  //key: 0, ascii: 48
+      {name: "Perc1",     alias: '#zero', volume:.7},  //key: 0, ascii: 48
       {name: "Kick1",    alias: '#one'},   //key: 1, ascii: 49
       {name: "Kick2",    alias: '#two'},   //key: 2, ascii: 50
       {name: "Kick3",    alias: '#three'}, //key: 3, ascii: 51
