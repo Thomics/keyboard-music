@@ -33,7 +33,7 @@ $(document).ready(function() {
   ion.sound({
     sounds: [
       //Row 1 - 0
-      {name: "Perc1",     alias: '#zero', volume:.7},  //key: 0, ascii: 48
+      {name: "Perc1",    alias: '#zero', volume:.7},  //key: 0, ascii: 48
       {name: "Kick1",    alias: '#one'},   //key: 1, ascii: 49
       {name: "Kick2",    alias: '#two'},   //key: 2, ascii: 50
       {name: "Kick3",    alias: '#three'}, //key: 3, ascii: 51
@@ -42,7 +42,7 @@ $(document).ready(function() {
       {name: "Clap2",    alias: '#six'},   //key: 6, ascii: 54
       {name: "Clap3",    alias: '#seven'}, //key: 7, ascii: 55
       {name: "Clap4",    alias: '#eight'}, //key: 8, ascii: 56
-      {name: "Perc10", alias: '#nine'},  //key: 9, ascii: 57
+      {name: "Perc10",   alias: '#nine'},  //key: 9, ascii: 57
 
       //Row qwerty
       {name: "Perc9",   alias: '#q'},     //key: q, ascii: 113
@@ -53,23 +53,20 @@ $(document).ready(function() {
       {name: "Perc8",   alias: '#y'},     //key: y, ascii: 121
       {name: "Perc2",   alias: '#u'},     //key: u, ascii: 117
       {name: "Perc5",   alias: '#i'},     //key: i, ascii: 105
-      {name: "triangle",   alias: '#o'},     //key: o, ascii: 111
-      {name: "snap", alias: '#p'},     //key: p, ascii: 112
+      {name: "triangle",alias: '#o'},     //key: o, ascii: 111
+      {name: "snap",    alias: '#p'},     //key: p, ascii: 112
 
       //Row asdf
-      {name: "",  alias: '#lbracket'}, //key: [, ascii: 91
-      {name: "",   alias: '#rbracket'}, //key: ], ascii: 93
-      {name: "",   alias: '#a'},     //key: a, ascii: 97
-      {name: "",  alias: '#s'},     //key: s, ascii: 115
-      {name: "",   alias: '#d'},     //key: d, ascii: 100
-      {name: "",  alias: '#f'},     //key: f, ascii: 102
-      {name: "",   alias: '#g'},     //key: g, ascii: 103
-      {name: "",  alias: '#h'},     //key: h, ascii: 104
+      {name: "synth5",   alias: '#a'},     //key: a, ascii: 97
+      {name: "synth6",   alias: '#s'},     //key: s, ascii: 115
+      {name: "synth7",   alias: '#d'},     //key: d, ascii: 100
+      {name: "synth8",   alias: '#f'},     //key: f, ascii: 102
+      {name: "synth9",   alias: '#g'},     //key: g, ascii: 103
+      {name: "",   alias: '#h'},     //key: h, ascii: 104
       {name: "",   alias: '#j'},     //key: j, ascii: 106
       {name: "",   alias: '#k'},     //key: k, ascii: 107
-      {name: "",  alias: '#l'},     //key: l, ascii: 108
-      {name: "",   alias: '#colon'}, //key: ;, ascii: 59
-      {name: "",  alias: '#apostrophe'} //key: ', ascii: 39
+      {name: "",   alias: '#l'},     //key: l, ascii: 108
+      {name: "",   alias: '#colon'} //key: ;, ascii: 59
     ],
 
       //general configuration
