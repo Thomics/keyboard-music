@@ -9,7 +9,7 @@ $(document).ready(function() {
   });
 
 
-  $(document).on("click", ".keys-container", function (event) {
+  $(document).on("click", '.keys-container', function (event) {
 
     var id = '#'.concat(event.target.id);
     ion.sound.play(id);
@@ -17,6 +17,15 @@ $(document).ready(function() {
 
   });
 
+  $(document).on("click", '#kick-snare', function (event) {
+
+
+    ion.sound.play('#kick-snare');
+    console.log(ion.sound.play('#kick-snare'));
+
+    changeKeyStyle('#kick-snare');
+
+  });
 
   /**
    * Takes a key and changes the corresponding classes style to match up with the key press.
@@ -62,55 +71,59 @@ $(document).ready(function() {
       {name: "synth7",   alias: '#d'},     //key: d, ascii: 100
       {name: "synth8",   alias: '#f'},     //key: f, ascii: 102
       {name: "synth9",   alias: '#g'},     //key: g, ascii: 103
-      {name: "",   alias: '#h'},     //key: h, ascii: 104
-      {name: "",   alias: '#j'},     //key: j, ascii: 106
-      {name: "",   alias: '#k'},     //key: k, ascii: 107
-      {name: "",   alias: '#l'},     //key: l, ascii: 108
-      {name: "",   alias: '#colon'} //key: ;, ascii: 59
+      //{name: "",   alias: '#h'},     //key: h, ascii: 104
+      //{name: "",   alias: '#j'},     //key: j, ascii: 106
+      //{name: "",   alias: '#k'},     //key: k, ascii: 107
+      //{name: "",   alias: '#l'},     //key: l, ascii: 108
+      //{name: "",   alias: '#colon'}, //key: ;, ascii: 59
+
+
+      {name: "metronome",   alias: '#kick-snare', loop: true, volume: .3}
+
     ],
 
-      //general configuration
-      path: "public/sounds/",
-      preload: true,
-      multiplay: true,
-      volume: 1
-    });
-
+    //general configuration
+    path: "public/sounds/",
+    preload: true,
+    multiplay: true,
+    volume: 1
   });
 
+});
 
-  var keyNums = {
-    '49'  : '#one',
-    '50'  : '#two',
-    '51'  : '#three',
-    '52'  : '#four',
-    '53'  : '#five',
-    '54'  : '#six',
-    '55'  : '#seven',
-    '56'  : '#eight',
-    '57'  : '#nine',
-    '48'  : '#zero',
-    '113' : '#q',
-    '119' : '#w',
-    '101' : '#e',
-    '114' : '#r',
-    '116' : '#t',
-    '121' : '#y',
-    '117' : '#u',
-    '105' : '#i',
-    '111' : '#o',
-    '112' : '#p',
-    '91'  : '#lbracket',
-    '93'  : '#rbracket',
-    '97'  : '#a',
-    '115' : '#s',
-    '100' : '#d',
-    '102' : '#f',
-    '103' : '#g',
-    '104' : '#h',
-    '106' : '#j',
-    '107' : '#k',
-    '108' : '#l',
-    '59'  : '#colon',
-    '39'  : '#apostrophe'
-  };
+
+var keyNums = {
+  '49'  : '#one',
+  '50'  : '#two',
+  '51'  : '#three',
+  '52'  : '#four',
+  '53'  : '#five',
+  '54'  : '#six',
+  '55'  : '#seven',
+  '56'  : '#eight',
+  '57'  : '#nine',
+  '48'  : '#zero',
+  '113' : '#q',
+  '119' : '#w',
+  '101' : '#e',
+  '114' : '#r',
+  '116' : '#t',
+  '121' : '#y',
+  '117' : '#u',
+  '105' : '#i',
+  '111' : '#o',
+  '112' : '#p',
+  '91'  : '#lbracket',
+  '93'  : '#rbracket',
+  '97'  : '#a',
+  '115' : '#s',
+  '100' : '#d',
+  '102' : '#f',
+  '103' : '#g',
+  '104' : '#h',
+  '106' : '#j',
+  '107' : '#k',
+  '108' : '#l',
+  '59'  : '#colon',
+  '39'  : '#apostrophe'
+};
