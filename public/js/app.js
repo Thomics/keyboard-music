@@ -17,13 +17,18 @@ $(document).ready(function() {
 
   });
 
-  $(document).on("click", '#kick-snare', function (event) {
+  $(document).on("click", '.metronome', function (event) {
+    var id = '#'.concat(event.target.id);
 
+    if (id === '#play-metronome') {
+      ion.sound.play(id);
+    }
 
-    ion.sound.play('#kick-snare');
-    console.log(ion.sound.play('#kick-snare'));
+    if (id === '#stop-metronome') {
+      ion.sound.stop('#play-metronome');
+    }
 
-    changeKeyStyle('#kick-snare');
+    changeKeyStyle(id);
 
   });
 
@@ -71,14 +76,14 @@ $(document).ready(function() {
       {name: "synth7",   alias: '#d'},     //key: d, ascii: 100
       {name: "synth8",   alias: '#f'},     //key: f, ascii: 102
       {name: "synth9",   alias: '#g'},     //key: g, ascii: 103
-      //{name: "",   alias: '#h'},     //key: h, ascii: 104
-      //{name: "",   alias: '#j'},     //key: j, ascii: 106
-      //{name: "",   alias: '#k'},     //key: k, ascii: 107
-      //{name: "",   alias: '#l'},     //key: l, ascii: 108
-      //{name: "",   alias: '#colon'}, //key: ;, ascii: 59
+      {name: "bass",   alias: '#h'},     //key: h, ascii: 104
+      {name: "ah",   alias: '#j'},     //key: j, ascii: 106
+      {name: "do",   alias: '#k'},     //key: k, ascii: 107
+      {name: "uhh",   alias: '#l'},     //key: l, ascii: 108
+      {name: "oh",   alias: '#colon'}, //key: ;, ascii: 59
 
 
-      {name: "metronome",   alias: '#kick-snare', loop: true, volume: .3}
+      {name: "metronome",   alias: '#play-metronome', loop: true, volume: .3}
 
     ],
 

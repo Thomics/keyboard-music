@@ -100,13 +100,14 @@ body {
   background: #ff3377;
 }
 
-.metronome {
+.metronome-title {
   font-size: 32px;
   font-weight: 700;
   margin-left: 140px;
   padding-top: 15px;
   color: #999999;
 }
+
 
 /*Number Keys 1 - 0*/
 #one    { background-color: #83d0c9; }
