@@ -1,36 +1,32 @@
 $(document).ready(function() {
 
   $(document).keypress(function (key) {
-
     var key = keyNums[key.which];
     ion.sound.play(key);
     changeKeyStyle(key);
-
+    keyArr.push(key);
+    console.log(keyArr);
   });
 
 
   $(document).on("click", '.keys-container', function (event) {
-
     var id = '#'.concat(event.target.id);
     ion.sound.play(id);
     changeKeyStyle(id);
-
   });
 
-  $(document).on("click", '.metronome', function (event) {
-    var id = '#'.concat(event.target.id);
 
-    if (id === '#play-metronome') {
-      ion.sound.play(id);
-    }
-
-    if (id === '#stop-metronome') {
-      ion.sound.stop('#play-metronome');
-    }
-
-    changeKeyStyle(id);
-
+  $('#play-metronome').on('click', function() {
+    ion.sound.play('#play-metronome');
+    changeKeyStyle('#play-metronome');
   });
+
+
+  $('#stop-metronome').on('click', function() {
+    ion.sound.stop('#play-metronome');
+    changeKeyStyle('#stop-metronome');
+  });
+
 
   /**
    * Takes a key and changes the corresponding classes style to match up with the key press.
@@ -59,16 +55,16 @@ $(document).ready(function() {
       {name: "Perc10",   alias: '#nine'},  //key: 9, ascii: 57
 
       //Row qwerty
-      {name: "Perc9",   alias: '#q'},     //key: q, ascii: 113
-      {name: "Perc7",   alias: '#w'},     //key: w, ascii: 119
-      {name: "Perc3",   alias: '#e'},     //key: e, ascii: 101
-      {name: "Perc4",   alias: '#r'},     //key: r, ascii: 114
-      {name: "Perc6",   alias: '#t'},     //key: t, ascii: 116
-      {name: "Perc8",   alias: '#y'},     //key: y, ascii: 121
-      {name: "Perc2",   alias: '#u'},     //key: u, ascii: 117
-      {name: "Perc5",   alias: '#i'},     //key: i, ascii: 105
-      {name: "triangle",alias: '#o'},     //key: o, ascii: 111
-      {name: "snap",    alias: '#p'},     //key: p, ascii: 112
+      {name: "Perc9",    alias: '#q'},     //key: q, ascii: 113
+      {name: "Perc7",    alias: '#w'},     //key: w, ascii: 119
+      {name: "Perc3",    alias: '#e'},     //key: e, ascii: 101
+      {name: "Perc4",    alias: '#r'},     //key: r, ascii: 114
+      {name: "Perc6",    alias: '#t'},     //key: t, ascii: 116
+      {name: "Perc8",    alias: '#y'},     //key: y, ascii: 121
+      {name: "Perc2",    alias: '#u'},     //key: u, ascii: 117
+      {name: "Perc5",    alias: '#i'},     //key: i, ascii: 105
+      {name: "triangle", alias: '#o'},     //key: o, ascii: 111
+      {name: "snap",     alias: '#p'},     //key: p, ascii: 112
 
       //Row asdf
       {name: "synth5",   alias: '#a'},     //key: a, ascii: 97
@@ -76,11 +72,11 @@ $(document).ready(function() {
       {name: "synth7",   alias: '#d'},     //key: d, ascii: 100
       {name: "synth8",   alias: '#f'},     //key: f, ascii: 102
       {name: "synth9",   alias: '#g'},     //key: g, ascii: 103
-      {name: "bass",   alias: '#h'},     //key: h, ascii: 104
-      {name: "ah",   alias: '#j'},     //key: j, ascii: 106
-      {name: "do",   alias: '#k'},     //key: k, ascii: 107
-      {name: "uhh",   alias: '#l'},     //key: l, ascii: 108
-      {name: "oh",   alias: '#colon'}, //key: ;, ascii: 59
+      {name: "bass",     alias: '#h'},     //key: h, ascii: 104
+      {name: "ah",       alias: '#j'},     //key: j, ascii: 106
+      {name: "do",       alias: '#k'},     //key: k, ascii: 107
+      {name: "uhh",      alias: '#l'},     //key: l, ascii: 108
+      {name: "oh",       alias: '#colon'}, //key: ;, ascii: 59
 
 
       {name: "metronome",   alias: '#play-metronome', loop: true, volume: .3}
