@@ -105,6 +105,17 @@ body {
   background: #ff3377;
 }
 
+#play-record {
+  margin-left: 20px;
+  background: #ff3377;
+}
+
+#stop-record {
+  margin-left: 20px;
+  background: #ff3377;
+}
+
+
 .metronome-title {
   font-size: 32px;
   font-weight: 700;

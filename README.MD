@@ -1,3 +1,3 @@
 Simple keyboard music generator.
 
-Visit**http://keymusic.netlify.com/**
+Visit**http://digitalivory.xyz/**

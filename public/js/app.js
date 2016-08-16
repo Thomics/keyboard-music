@@ -1,14 +1,27 @@
 $(document).ready(function() {
 
-  $(document).keypress(function (key) {
-    var key = keyNums[key.which];
+  var keyArr = {start: 0, end: 0, time:[], key:[]};
+  var d = new Date();
+  var recording = false;
+
+  $(document).keypress(function (pressedKey) {
+
+    var key = keyNums[pressedKey.which];
     ion.sound.play(key);
     changeKeyStyle(key);
-    keyArr.push(key);
-    console.log(keyArr);
+
+    if(recording) {
+
+      var time = new Date();
+      keyArr.time.push(time.getTime() - keyArr.start);
+      keyArr.key.push(key);
+
+    }
+
+
   });
 
-
+  //Mouse click
   $(document).on("click", '.keys-container', function (event) {
     var id = '#'.concat(event.target.id);
     ion.sound.play(id);
@@ -27,6 +40,16 @@ $(document).ready(function() {
     changeKeyStyle('#stop-metronome');
   });
 
+  $('#start-record').on('click', function() {
+    keyArr.start = d.getTime();
+    recording = true;
+  });
+
+  $('#stop-record').on('click', function() {
+    keyArr.end = d.getTime();
+    recording = false;
+  });
+
 
   /**
    * Takes a key and changes the corresponding classes style to match up with the key press.
@@ -37,6 +60,34 @@ $(document).ready(function() {
     setTimeout(function () {
       $(id).css({'-webkit-filter': '', 'filter': ''});
     }, 200);
+  }
+
+  $('#play-record').on('click', function() {
+    timey();
+  });
+
+
+  function timey() {
+
+    var time = new Date();
+    var startPlayback = time.getTime();
+    var pauseTime = 0;
+
+
+    console.log(keyArr.time.length);
+    for (var i = 0; i < keyArr.time.length; i++ ) {
+      var key = keyArr.key[i];
+
+      console.log(key);
+      pauseTime = keyArr.time[i];
+      setTimeout(function () {
+        ion.sound.play('#one');
+      }, pauseTime);
+
+    }
+
+
+
   }
 
 
@@ -90,41 +141,41 @@ $(document).ready(function() {
     volume: 1
   });
 
+
+  var keyNums = {
+    '49'  : '#one',
+    '50'  : '#two',
+    '51'  : '#three',
+    '52'  : '#four',
+    '53'  : '#five',
+    '54'  : '#six',
+    '55'  : '#seven',
+    '56'  : '#eight',
+    '57'  : '#nine',
+    '48'  : '#zero',
+    '113' : '#q',
+    '119' : '#w',
+    '101' : '#e',
+    '114' : '#r',
+    '116' : '#t',
+    '121' : '#y',
+    '117' : '#u',
+    '105' : '#i',
+    '111' : '#o',
+    '112' : '#p',
+    '91'  : '#lbracket',
+    '93'  : '#rbracket',
+    '97'  : '#a',
+    '115' : '#s',
+    '100' : '#d',
+    '102' : '#f',
+    '103' : '#g',
+    '104' : '#h',
+    '106' : '#j',
+    '107' : '#k',
+    '108' : '#l',
+    '59'  : '#colon',
+    '39'  : '#apostrophe'
+  };
+
 });
-
-
-var keyNums = {
-  '49'  : '#one',
-  '50'  : '#two',
-  '51'  : '#three',
-  '52'  : '#four',
-  '53'  : '#five',
-  '54'  : '#six',
-  '55'  : '#seven',
-  '56'  : '#eight',
-  '57'  : '#nine',
-  '48'  : '#zero',
-  '113' : '#q',
-  '119' : '#w',
-  '101' : '#e',
-  '114' : '#r',
-  '116' : '#t',
-  '121' : '#y',
-  '117' : '#u',
-  '105' : '#i',
-  '111' : '#o',
-  '112' : '#p',
-  '91'  : '#lbracket',
-  '93'  : '#rbracket',
-  '97'  : '#a',
-  '115' : '#s',
-  '100' : '#d',
-  '102' : '#f',
-  '103' : '#g',
-  '104' : '#h',
-  '106' : '#j',
-  '107' : '#k',
-  '108' : '#l',
-  '59'  : '#colon',
-  '39'  : '#apostrophe'
-};
