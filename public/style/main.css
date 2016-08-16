@@ -1,5 +1,9 @@
 body {
   font-family: 'Montserrat', sans-serif;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 .header {
@@ -48,10 +52,6 @@ body {
   float: left;
   color: #ffffff;
   text-align: center;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
   line-height: 3.5vw;
   vertical-align: middle;
 }
@@ -140,6 +140,24 @@ body {
 .record {
   margin-left: 120px;
   float: left;
+}
+
+.recording {
+  background: #ff3377;
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  float: left;
+  margin-top: 141px;
+  margin-left: 20px;
+}
+
+.recording-text {
+  margin-top: 149px;
+  float: left;
+  margin-left: 10px;
+  color: #999;
+  text-decoration: line-through;
 }
 
 /*Number Keys 1 - 0*/

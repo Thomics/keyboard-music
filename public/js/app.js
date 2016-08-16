@@ -4,11 +4,13 @@ $(document).ready(function() {
   var d = new Date();
   var recording = false;
 
+
   $(document).keypress(function (pressedKey) {
 
     var key = keyNums[pressedKey.which];
     ion.sound.play(key);
     changeKeyStyle(key);
+
 
     if(recording) {
 
@@ -44,12 +46,16 @@ $(document).ready(function() {
     keyArr.start = d.getTime();
     recording = true;
     changeKeyStyle('#start-record');
+    $('.recording-text').css({'text-decoration' : 'none'});
+    $('.recording').css({'background': '#83d0c9'});
   });
 
   $('#stop-record').on('click', function() {
     keyArr.end = d.getTime();
     recording = false;
     changeKeyStyle('#stop-record');
+    $('.recording-text').css({'text-decoration' : 'line-through'});
+    $('.recording').css({'background': '#800080'});
   });
 
 
@@ -174,7 +180,8 @@ $(document).ready(function() {
     '107' : '#k',
     '108' : '#l',
     '59'  : '#colon',
-    '39'  : '#apostrophe'
+    '39'  : '#apostrophe',
+    '32'  : '#space'
   };
 
 });
