@@ -43,11 +43,13 @@ $(document).ready(function() {
   $('#start-record').on('click', function() {
     keyArr.start = d.getTime();
     recording = true;
+    changeKeyStyle('#start-record');
   });
 
   $('#stop-record').on('click', function() {
     keyArr.end = d.getTime();
     recording = false;
+    changeKeyStyle('#stop-record');
   });
 
 
@@ -63,32 +65,29 @@ $(document).ready(function() {
   }
 
   $('#play-record').on('click', function() {
-    timey();
+    playback();
+    changeKeyStyle('#play-record');
   });
 
 
-  function timey() {
+  function playbackTimer(i) {
+    var pauseTime = keyArr.time[i];
+    var key = keyArr.key[i];
 
-    var time = new Date();
-    var startPlayback = time.getTime();
-    var pauseTime = 0;
+    setTimeout(function () {
+      ion.sound.play(key);
+      changeKeyStyle(key);
+    }, pauseTime, key);
+  }
 
+  function playback() {
 
-    console.log(keyArr.time.length);
     for (var i = 0; i < keyArr.time.length; i++ ) {
-      var key = keyArr.key[i];
-
-      console.log(key);
-      pauseTime = keyArr.time[i];
-      setTimeout(function () {
-        ion.sound.play('#one');
-      }, pauseTime);
-
+      playbackTimer(i);
     }
 
-
-
   }
+
 
 
   ion.sound({

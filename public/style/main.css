@@ -78,7 +78,14 @@ body {
   }
 }
 
-.metronome-button {
+
+.metronome {
+  width: 200px;
+  float: left;
+  margin-left: 140px;
+}
+
+.metronome-button, .record-button {
   font-size: 22px;
   width: 90px;
   height: 82px;
@@ -88,11 +95,11 @@ body {
   text-align: center;
   float: left;
   margin-top: 40px;
+  cursor: pointer;
 }
 
 #play-metronome {
-  margin-left: 140px;
-  background: #ff3377;
+  background: #83d0c9;
 }
 
 #stop-metronome {
@@ -101,13 +108,12 @@ body {
 }
 
 #start-record {
-  margin-left: 20px;
-  background: #ff3377;
+  background: #83d0c9;
 }
 
 #play-record {
   margin-left: 20px;
-  background: #ff3377;
+  background: #800080;
 }
 
 #stop-record {
@@ -116,14 +122,25 @@ body {
 }
 
 
-.metronome-title {
+.metronome-title{
   font-size: 32px;
   font-weight: 700;
-  margin-left: 140px;
   padding-top: 15px;
   color: #999999;
 }
 
+.record-title {
+  font-size: 32px;
+  font-weight: 700;
+  padding-top: 15px;
+  color: #999999;
+}
+
+
+.record {
+  margin-left: 120px;
+  float: left;
+}
 
 /*Number Keys 1 - 0*/
 #one    { background-color: #83d0c9; }
