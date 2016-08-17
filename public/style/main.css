@@ -161,6 +161,12 @@ body {
   text-decoration: line-through;
 }
 
+
+.key-press {
+  -webkit-filter: opacity(.8);
+  filter: opacity(.8);
+}
+
 /*Number Keys 1 - 0*/
 #one    { background-color: #83d0c9; }
 #two    { background-color: #75cac2; }
