@@ -127,6 +127,7 @@ body {
   font-weight: 700;
   padding-top: 15px;
   color: #999999;
+  margin-bottom: 40px;
 }
 
 .record-title {
@@ -134,11 +135,12 @@ body {
   font-weight: 700;
   padding-top: 15px;
   color: #999999;
+  margin-bottom: 40px;
 }
 
 
 .record {
-  margin-left: 120px;
+  margin-left: 60px;
   float: left;
 }
 
@@ -148,8 +150,7 @@ body {
   width: 30px;
   border-radius: 50%;
   float: left;
-  margin-top: 141px;
-  margin-left: 20px;
+  margin: 16px 10px 0 0;
 }
 
 .recording-text {
