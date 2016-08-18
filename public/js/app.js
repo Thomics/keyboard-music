@@ -20,7 +20,7 @@ $(document).ready(function() {
    */
   $(document).on("click", '.keys-container', function (event) {
     var key = '#'.concat(event.target.id);
-    seteKeyData(key);
+    setKeyData(key);
   });
 
 
@@ -116,6 +116,7 @@ $(document).ready(function() {
   $('#play-record').on('click', function() {
     playback();
     changeKeyStyle('#play-record');
+
   });
 
 
