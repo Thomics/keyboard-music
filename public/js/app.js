@@ -90,7 +90,7 @@ $(document).ready(function() {
     keyObj.start = time.getTime();
     recording = true;
     changeKeyStyle('#start-record');
-    $('.recording').css({'background': '#83d0c9'});
+    $('#start-record').css({'background': '#f37736', 'border' : '1px solid #f37736', 'color' : '#fff'});
   }
 
 
@@ -102,8 +102,7 @@ $(document).ready(function() {
     keyObj.end = time.getTime();
     recording = false;
     changeKeyStyle('#stop-record');
-    $('.recording').css({'background': '#800080'});
-    console.log(keyObj);
+    $('#start-record').removeAttr('style');
   }
 
 
