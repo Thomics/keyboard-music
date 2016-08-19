@@ -36,6 +36,16 @@ ion.sound({
     {name: "uhh",      alias: '#l'},     //key: l, ascii: 108
     {name: "oh",       alias: '#colon'}, //key: ;, ascii: 59
 
+    //Row zxcv
+    {name: "synth6",       alias: '#z'}, //key: z, ascii: 122
+    {name: "synth6",       alias: '#x'}, //key: x, ascii: 120
+    {name: "synth6",       alias: '#c'}, //key: c, ascii: 99
+    {name: "synth6",       alias: '#v'}, //key: v, ascii: 118
+    {name: "synth6",       alias: '#b'}, //key: b, ascii: 98
+    {name: "synth6",       alias: '#n'}, //key: n, ascii: 110
+    {name: "synth6",       alias: '#m'}, //key: m, ascii: 109
+    {name: "synth6",       alias: '#comma'}, //key: comma, ascii: 44
+    {name: "synth6",       alias: '#period'}, //key: period, ascii: 46
 
     {name: "metronome",   alias: '#play-metronome', loop: true, volume: .3}
 
@@ -70,8 +80,6 @@ var keyNums = {
   '105' : '#i',
   '111' : '#o',
   '112' : '#p',
-  '91'  : '#lbracket',
-  '93'  : '#rbracket',
   '97'  : '#a',
   '115' : '#s',
   '100' : '#d',
@@ -82,6 +90,25 @@ var keyNums = {
   '107' : '#k',
   '108' : '#l',
   '59'  : '#colon',
+  '122' : '#z',
+  '120' : '#x',
+  '99'  : '#c',
+  '118' : '#v',
+  '98'  : '#b',
+  '110' : '#n',
+  '109' : '#m',
+  '44'  : '#comma',
+  '46'  : '#period',
+  '32'  : '#space',
+
+  //Muted Sounds
+  '13'  : '#return',
   '39'  : '#apostrophe',
-  '32'  : '#space'
+  '45'  : '#minus',
+  '47'  : '#fslash',
+  '61'  : '#plus',
+  '91'  : '#lbracket',
+  '92'  : '#bslash',
+  '93'  : '#rbracket',
+  '96'  : '#tilde'
 };

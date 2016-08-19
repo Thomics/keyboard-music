@@ -4,12 +4,14 @@ $(document).ready(function() {
   //Global variables
   var keyObj = {start: 0, end: 0, time:[], key:[]};
   var recording = false;
+  var playingBack = false;
 
 
   /**
    * When the user presses the keyboard, plays the sound, indicates the press and records the note.
    */
   $(document).keypress(function (pressedKey) {
+    console.log(pressedKey.which);
     var key = keyNums[pressedKey.which];
     setKeyData(key)
   });
@@ -101,6 +103,7 @@ $(document).ready(function() {
     recording = false;
     changeKeyStyle('#stop-record');
     $('.recording').css({'background': '#800080'});
+    console.log(keyObj);
   }
 
 
@@ -114,9 +117,9 @@ $(document).ready(function() {
    * key clicks in order, with the same timing.
    */
   $('#play-record').on('click', function() {
+    playingBack = true;
     playback();
     changeKeyStyle('#play-record');
-
   });
 
 

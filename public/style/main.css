@@ -7,7 +7,7 @@ body {
 }
 
 .header {
-  height: 7vw;
+  height: 6vw;
   background: #ffffff;
   color: #999999;
 }
@@ -107,7 +107,25 @@ body {
   background: #ff3377;
 }
 
+.record-key {
+  color: white;
+  float: left;
+  border-radius: 50%;
+  transition: .1s background linear, .1s color linear;
+  cursor: pointer;
+}
+
 #start-record {
+  background: #ffffff;
+  padding: 8px 8px 8px 8px;
+  border: 1px solid #83d0c9;
+  color: #83d0c9;
+  font-size: 20px;
+  line-height: 11px;
+}
+
+#start-record:hover {
+  color: #ffffff;
   background: #83d0c9;
 }
 
@@ -117,8 +135,18 @@ body {
 }
 
 #stop-record {
-  margin-left: 20px;
+  margin-left: -30px;
+  background: #ffffff;
+  color: #ff3377;
+  padding: 7px 7px 10px 7px;
+  line-height: 10px;
+  font-size: 27px;
+  border: 1px solid #ff3377;
+}
+
+#stop-record:hover {
   background: #ff3377;
+  color: #ff3377;
 }
 
 
@@ -140,8 +168,12 @@ body {
 
 
 .record {
-  margin-left: 60px;
+  padding: 10px 0 10px 140px;
   float: left;
+  background: #eee;
+  height: auto;
+  width: calc(100% - 140px);
+  border-bottom: 1px solid #bbb;
 }
 
 .recording {
@@ -165,6 +197,10 @@ body {
 .key-press {
   -webkit-filter: opacity(.8);
   filter: opacity(.8);
+}
+
+.hide {
+  display: none;
 }
 
 /*Number Keys 1 - 0*/
