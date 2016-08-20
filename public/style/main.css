@@ -110,6 +110,14 @@ body {
 /*Record Style*/
 /**************/
 
+.record {
+  padding: 10px 0;
+  border-bottom: 1px solid #bbb;
+  float: left;
+  background: #eeeeee;
+  width: 100%;
+}
+
 .record-key {
   border-radius: 50%;
   color: white;
@@ -124,6 +132,7 @@ body {
   color: #83d0c9;
   font-size: 20px;
   line-height: 9px;
+  margin-left: 140px;
   padding: 8px 7.5px 10px 7.5px;
 }
 

@@ -21,7 +21,7 @@ $(document).ready(function() {
    * When the user uses the mouse to click on a key, plays the sound, indicates the press and records the note.
    */
   $(document).on("click", '.keys-container', function (event) {
-    var key = '#'.concat(event.target.id);
+    var key = '.'.concat(event.target.id);
     setKeyData(key);
   });
 
@@ -55,9 +55,9 @@ $(document).ready(function() {
   //Recording the key presses section.
   /**********************************/
 
-  $('#start-record').on('click', startRecord);
+  $('.start-record').on('click', startRecord);
 
-  $('#stop-record').on('click', stopRecord);
+  $('.stop-record').on('click', stopRecord);
 
 
   /**
@@ -66,7 +66,7 @@ $(document).ready(function() {
    */
   function recordNotes(key) {
 
-    if (key === "#space") {
+    if (key === ".space") {
       if (recording) {
         stopRecord();
       } else {
@@ -89,8 +89,8 @@ $(document).ready(function() {
     var time = new Date();
     keyObj.start = time.getTime();
     recording = true;
-    changeKeyStyle('#start-record');
-    $('#start-record').css({'background': '#f37736', 'border' : '1px solid #f37736', 'color' : '#fff'});
+    changeKeyStyle('.start-record');
+    $('.start-record').css({'background': '#f37736', 'border' : '1px solid #f37736', 'color' : '#fff'});
   }
 
 
@@ -101,8 +101,8 @@ $(document).ready(function() {
     var time = new Date();
     keyObj.end = time.getTime();
     recording = false;
-    changeKeyStyle('#stop-record');
-    $('#start-record').removeAttr('style');
+    changeKeyStyle('.stop-record');
+    $('.start-record').removeAttr('style');
   }
 
 
@@ -115,10 +115,10 @@ $(document).ready(function() {
    * When the user click's the 'play-record' button, the program plays back the users
    * key clicks in order, with the same timing.
    */
-  $('#play-record').on('click', function() {
+  $('.play-record').on('click', function() {
     playingBack = true;
     playback();
-    changeKeyStyle('#play-record');
+    changeKeyStyle('.play-record');
   });
 
 
@@ -152,15 +152,15 @@ $(document).ready(function() {
   //Metronome section.
   /******************/
 
-  $('#play-metronome').on('click', function() {
-    ion.sound.play('#play-metronome');
-    changeKeyStyle('#play-metronome');
+  $('.play-metronome').on('click', function() {
+    ion.sound.play('.play-metronome');
+    changeKeyStyle('.play-metronome');
   });
 
 
-  $('#stop-metronome').on('click', function() {
-    ion.sound.stop('#play-metronome');
-    changeKeyStyle('#stop-metronome');
+  $('.stop-metronome').on('click', function() {
+    ion.sound.stop('.play-metronome');
+    changeKeyStyle('.stop-metronome');
   });
 
 
