@@ -2,10 +2,10 @@
 $(document).ready(function() {
 
   //Global variables
-  var keyObj = {start: 0, end: 0, time:[], key:[]};
+  var keyData = {start: 0, end: 0, time:[], key:[]};
   var recording = false;
   var playingBack = false;
-  var timer;
+
 
   /**
    * When the user presses the keyboard, plays the sound, indicates the press and records the note.
@@ -13,7 +13,7 @@ $(document).ready(function() {
   $(document).keypress(function (pressedKey) {
     console.log(pressedKey.which);
     var key = keyNums[pressedKey.which];
-    setKeyData(key)
+    setKeyData(key);
   });
 
 
@@ -76,9 +76,10 @@ $(document).ready(function() {
 
     if(recording) {
       var time = new Date();
-      keyObj.time.push(time.getTime() - keyObj.start);
-      keyObj.key.push(key);
+      keyData.time.push(time.getTime() - keyData.start);
+      keyData.key.push(key);
     }
+
   }
 
 
@@ -88,10 +89,11 @@ $(document).ready(function() {
   function startRecord() {
     var time = new Date();
     displayTimer();
-    keyObj.start = time.getTime();
+    keyData.start = time.getTime();
     recording = true;
     changeKeyStyle('.start-record');
     $('.start-record').css({'background': '#f37736', 'border' : '1px solid #f37736', 'color' : '#fff'});
+
   }
 
 
@@ -100,48 +102,11 @@ $(document).ready(function() {
    */
   function stopRecord() {
     var time = new Date();
-    keyObj.end = time.getTime();
+    keyData.end = time.getTime();
     recording = false;
     changeKeyStyle('.stop-record');
     $('.start-record').removeAttr('style');
     clearInterval(timer);
-  }
-
-  var timeKeeper = {
-    seconds: 0,
-    leftOverTime: 0
-  };
-
-  /**
-   * Creates a timer using setInterval and the Date object.
-   */
-  function displayTimer() {
-    var time = new Date();
-    timeKeeper.seconds = time.getSeconds();
-    timer = setInterval(setTime, 60);
-  }
-
-  /**
-   *
-   * @param seconds the seconds to offset the time so we don't start recording at times other than 0 seconds.
-   */
-  function setTime() {
-    var time = new Date();
-
-    var seconds = time.getSeconds() - timeKeeper.seconds + timeKeeper.leftOverTime;
-
-    if ( (time.getSeconds() - timeKeeper.seconds) < 0 ) {
-      timeKeeper.leftOverTime =  60 - timeKeeper.seconds;
-      timeKeeper.seconds = 0;
-    }
-
-    if ( seconds > 59 ) {
-      clearInterval(timer);
-    }
-
-    var milliseconds = time.getMilliseconds();
-
-    $('.timer').html( seconds + ':' + milliseconds );
   }
 
 
@@ -155,8 +120,13 @@ $(document).ready(function() {
    * key clicks in order, with the same timing.
    */
   $('.play-record').on('click', function() {
-    playingBack = true;
-    playback();
+
+    if ( !playingBack ) {
+      playingBack = true;
+      setTimeout(function() { playingBack = false; }, keyData.end - keyData.start );
+      playback();
+    }
+
     changeKeyStyle('.play-record');
   });
 
@@ -166,8 +136,8 @@ $(document).ready(function() {
    * @param i: i is a counter for keeping track of the keypress that should be played back.
    */
   function playbackTimer(i) {
-    var pauseTime = keyObj.time[i];
-    var key = keyObj.key[i];
+    var pauseTime = keyData.time[i];
+    var key = keyData.key[i];
 
     setTimeout(function () {
       ion.sound.play(key);
@@ -180,27 +150,9 @@ $(document).ready(function() {
    * Plays the users generated music back to them.
    */
   function playback() {
-    for (var i = 0; i < keyObj.time.length; i++) {
+    for (var i = 0; i < keyData.time.length; i++) {
       playbackTimer(i);
     }
   }
-
-
-
-  /******************/
-  //Metronome section.
-  /******************/
-
-  $('.play-metronome').on('click', function() {
-    ion.sound.play('.play-metronome');
-    changeKeyStyle('.play-metronome');
-  });
-
-
-  $('.stop-metronome').on('click', function() {
-    ion.sound.stop('.play-metronome');
-    changeKeyStyle('.stop-metronome');
-  });
-
 
 });

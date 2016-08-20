@@ -180,6 +180,27 @@ body {
 /*Metronome Style*/
 /*****************/
 
+.timer-container {
+  float: left;
+  font-size: 12px;
+  margin-left: 10px;
+  width: 95px;
+  padding: 8px;
+}
+
+.timer{
+  float: left;
+  display: inline;
+}
+
+.timer-bottom {
+  float: right;
+}
+
+/*****************/
+/*Metronome Style*/
+/*****************/
+
 .metronome {
   float: left;
   margin-left: 140px;
