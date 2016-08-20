@@ -5,7 +5,7 @@ $(document).ready(function() {
   var keyObj = {start: 0, end: 0, time:[], key:[]};
   var recording = false;
   var playingBack = false;
-
+  var timer;
 
   /**
    * When the user presses the keyboard, plays the sound, indicates the press and records the note.
@@ -87,6 +87,7 @@ $(document).ready(function() {
    */
   function startRecord() {
     var time = new Date();
+    displayTimer();
     keyObj.start = time.getTime();
     recording = true;
     changeKeyStyle('.start-record');
@@ -103,6 +104,44 @@ $(document).ready(function() {
     recording = false;
     changeKeyStyle('.stop-record');
     $('.start-record').removeAttr('style');
+    clearInterval(timer);
+  }
+
+  var timeKeeper = {
+    seconds: 0,
+    leftOverTime: 0
+  };
+
+  /**
+   * Creates a timer using setInterval and the Date object.
+   */
+  function displayTimer() {
+    var time = new Date();
+    timeKeeper.seconds = time.getSeconds();
+    timer = setInterval(setTime, 60);
+  }
+
+  /**
+   *
+   * @param seconds the seconds to offset the time so we don't start recording at times other than 0 seconds.
+   */
+  function setTime() {
+    var time = new Date();
+
+    var seconds = time.getSeconds() - timeKeeper.seconds + timeKeeper.leftOverTime;
+
+    if ( (time.getSeconds() - timeKeeper.seconds) < 0 ) {
+      timeKeeper.leftOverTime =  60 - timeKeeper.seconds;
+      timeKeeper.seconds = 0;
+    }
+
+    if ( seconds > 59 ) {
+      clearInterval(timer);
+    }
+
+    var milliseconds = time.getMilliseconds();
+
+    $('.timer').html( seconds + ':' + milliseconds );
   }
 
 
