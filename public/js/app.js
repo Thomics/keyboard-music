@@ -2,7 +2,12 @@
 $(document).ready(function() {
 
   //Global variables
-  var keyData = {start: 0, end: 0, time:[], key:[]};
+  var keyData = {
+    start: 0,
+    end: 0,
+    time:[],
+    key:[]
+  };
   var recording = false;
   var playingBack = false;
 
@@ -10,20 +15,25 @@ $(document).ready(function() {
   /**
    * When the user presses the keyboard, plays the sound, indicates the press and records the note.
    */
-  $(document).keypress(function (pressedKey) {
+  $(document).keypress(keyPressed);
+
+  function keyPressed(pressedKey) {
     console.log(pressedKey.which);
     var key = keyNums[pressedKey.which];
     setKeyData(key);
-  });
+  }
 
+
+  $(document).on("click", '.keys-container', mouseClicked);
 
   /**
    * When the user uses the mouse to click on a key, plays the sound, indicates the press and records the note.
+   * @param keyClicked - the key that the user clicks on with the mouse.
    */
-  $(document).on("click", '.keys-container', function (event) {
-    var key = '.'.concat(event.target.id);
+  function mouseClicked(keyClicked) {
+    var key = '.'.concat(keyClicked.target.className.split('key ')[1]);
     setKeyData(key);
-  });
+  }
 
 
   /**
@@ -66,13 +76,8 @@ $(document).ready(function() {
    */
   function recordNotes(key) {
 
-    if (key === ".space") {
-      if (recording) {
-        stopRecord();
-      } else {
-        startRecord();
-      }
-    }
+    checkStopRecord(key);
+
 
     if(recording) {
       var time = new Date();
@@ -80,6 +85,21 @@ $(document).ready(function() {
       keyData.key.push(key);
     }
 
+  }
+
+  function checkStopRecord(key) {
+
+    if (timeKeeper.seconds > 59) {
+      stopRecord();
+    }
+
+    if (key === ".space") {
+      if (recording) {
+        stopRecord();
+      } else {
+        startRecord();
+      }
+    }
   }
 
 
@@ -110,25 +130,31 @@ $(document).ready(function() {
   }
 
 
-
   /*************************************/
   //Playing back the key presses section.
   /*************************************/
+
+  $('.play-record').on('click', playRecord);
 
   /**
    * When the user click's the 'play-record' button, the program plays back the users
    * key clicks in order, with the same timing.
    */
-  $('.play-record').on('click', function() {
-
+  function playRecord() {
     if ( !playingBack ) {
       playingBack = true;
-      setTimeout(function() { playingBack = false; }, keyData.end - keyData.start );
+      displayTimer();
+
+      setTimeout(function() {
+        playingBack = false;
+        clearInterval(timer);
+      }, keyData.end - keyData.start );
+
       playback();
     }
 
     changeKeyStyle('.play-record');
-  });
+  }
 
 
   /**

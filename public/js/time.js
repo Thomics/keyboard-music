@@ -16,7 +16,7 @@ function displayTimer() {
 
 /**
  *
- * @param seconds the seconds to offset the time so we don't start recording at times other than 0 seconds.
+ * @param seconds - the amount of seconds to offset the time so we don't start recording at times other than 0 seconds.
  */
 function setTime() {
   var time = new Date();
@@ -29,6 +29,8 @@ function setTime() {
   }
 
   if ( seconds > 59 ) {
+    timeKeeper.seconds = 0;
+    timeKeeper.leftOverTime = 0;
     clearInterval(timer);
   }
 
