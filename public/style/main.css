@@ -249,7 +249,7 @@ body {
   background: #f1f5f6;
   position: absolute;
   margin-top: 50px;
-  transition: width 60s linear;
+  transition: width 20s linear;
 }
 
 .timeline-width {

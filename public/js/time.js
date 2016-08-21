@@ -1,5 +1,5 @@
 var timeKeeper = {
-  seconds: 0,
+  timeOffset: 0,
   leftOverTime: 0
 };
 
@@ -10,8 +10,9 @@ var timer;
  */
 function displayTimer() {
   var time = new Date();
-  timeKeeper.seconds = time.getSeconds();
-  timer = setInterval(setTime, 60);
+  timeKeeper.timeOffset = time.getSeconds();
+  console.log(timeKeeper.timeOffset);
+  timer = setInterval(setTime, 20);
   displayTimeline();
 }
 
@@ -21,23 +22,21 @@ function displayTimer() {
  */
 function setTime() {
   var time = new Date();
+  //Sets seconds to 0.
+  var seconds = time.getSeconds() - timeKeeper.timeOffset + timeKeeper.leftOverTime;
+  var milliseconds = time.getMilliseconds();
 
-  var seconds = time.getSeconds() - timeKeeper.seconds + timeKeeper.leftOverTime;
-
-  if ( (time.getSeconds() - timeKeeper.seconds) < 0 ) {
-    timeKeeper.leftOverTime =  60 - timeKeeper.seconds;
-    timeKeeper.seconds = 0;
-  }
-
-  if ( seconds > 59 ) {
-    timeKeeper.seconds = 0;
-    timeKeeper.leftOverTime = 0;
+  if ( seconds > 19 ) {
     clearInterval(timer);
   }
 
-  var milliseconds = time.getMilliseconds();
+  if ( (time.getSeconds() - timeKeeper.timeOffset) < 0 ) {
+    timeKeeper.leftOverTime =  60 - timeKeeper.timeOffset;
+    timeKeeper.timeOffset = 0;
+  }
 
   $('.timer').html( seconds + ':' + milliseconds );
+
 }
 
 
@@ -45,6 +44,3 @@ function displayTimeline() {
   $('.timeline').addClass('timeline-width');
 
 }
-
-
-

@@ -113,7 +113,7 @@ $(document).ready(function() {
 
 
   function checkStopRecord(key) {
-    if (timeKeeper.seconds > 59) {
+    if (timeKeeper.seconds > 19) {
       stopRecord();
     }
     if (key === ".space" && !state.playingBack) {
