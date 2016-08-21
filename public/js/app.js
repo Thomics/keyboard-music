@@ -6,7 +6,13 @@ $(document).ready(function() {
     start: 0,
     end: 0,
     time:[],
-    key:[]
+    key:[],
+    clearData: function() {
+      this.start = 0;
+      this.end = 0;
+      this.time = [];
+      this.key = [];
+    }
   };
 
   var state = {
@@ -77,6 +83,7 @@ $(document).ready(function() {
    */
   function setRecording() {
 
+    console.log(state.playingBack);
     if ( state.recording ) {
       stopRecord();
     } else {
@@ -108,7 +115,7 @@ $(document).ready(function() {
     if (timeKeeper.seconds > 59) {
       stopRecord();
     }
-    if (key === ".space") {
+    if (key === ".space" && !state.playingBack) {
       setRecording();
     }
   }
@@ -118,11 +125,14 @@ $(document).ready(function() {
    * Starts the program recording users keypresses.
    */
   function startRecord() {
-    var time = new Date();
-    keyData.start = time.getTime();
-    state.recording = true;
-    displayTimer();
-    $('.record-input').css({'background': '#f37736', 'border' : '1px solid #f37736', 'color' : '#fff'});
+    if( !state.playingBack ) {
+      keyData.clearData();
+      var time = new Date();
+      keyData.start = time.getTime();
+      state.recording = true;
+      displayTimer();
+      $('.record-input').css({'background': '#f37736', 'border': '1px solid #f37736', 'color': '#fff'});
+    }
   }
 
 
