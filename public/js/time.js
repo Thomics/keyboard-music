@@ -12,6 +12,7 @@ function displayTimer() {
   var time = new Date();
   timeKeeper.seconds = time.getSeconds();
   timer = setInterval(setTime, 60);
+  displayTimeline();
 }
 
 /**
@@ -38,3 +39,12 @@ function setTime() {
 
   $('.timer').html( seconds + ':' + milliseconds );
 }
+
+
+function displayTimeline() {
+  $('.timeline').addClass('timeline-width');
+
+}
+
+
+

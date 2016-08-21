@@ -29,6 +29,7 @@ $(document).ready(function() {
   function keyPressed(pressedKey) {
     var key = keyNums[pressedKey.which];
     setKeyData(key);
+    paintKey(key);
   }
 
 
@@ -143,9 +144,10 @@ $(document).ready(function() {
     var time = new Date();
     keyData.end = time.getTime();
     state.recording = false;
-    $('.start-playback').removeClass('hide');
-    $('.stop-playback').addClass('hide');
+    //$('.start-playback').removeClass('hide');
+    //$('.stop-playback').addClass('hide');
     $('.record-input').removeAttr('style');
+    $('.timeline').stop();
     clearInterval(timer);
   }
 
@@ -202,6 +204,17 @@ $(document).ready(function() {
   function playback() {
     for (var i = 0; i < keyData.time.length; i++) {
       playbackTimer(i);
+    }
+  }
+
+
+
+  function paintKey(key) {
+    key = key.split('.')[1];
+    if ( state.recording ) {
+      var width = $('.timeline').width();
+      $('.timeline').append('<div class="key-stroke ' + key + '" style="left: ' + width + 'px;" </div>');
+
     }
   }
 

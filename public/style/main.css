@@ -238,6 +238,34 @@ body {
   margin-left: 20px;
 }
 
+/**********/
+/*Timeline*/
+/**********/
+
+.timeline {
+  width: 0;
+  margin-left: 140px;
+  height: 50px;
+  background: #f1f5f6;
+  position: absolute;
+  margin-top: 50px;
+  transition: width 60s linear;
+}
+
+.timeline-width {
+  width: 950px;
+}
+
+.key-stroke {
+  width: 4px;
+  min-height: 50px;
+  position: absolute;
+  display: inline-block;
+  float: left;
+  top: 0;
+}
+
+
 
 /*********/
 /*Helpers*/
