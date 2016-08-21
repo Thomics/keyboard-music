@@ -126,7 +126,7 @@ body {
   transition: .1s background linear, .1s color linear;
 }
 
-.start-record {
+.record-input {
   background: #ffffff;
   border: 1px solid #83d0c9;
   color: #83d0c9;
@@ -136,12 +136,12 @@ body {
   padding: 8px 7.5px 10px 7.5px;
 }
 
-.start-record:hover {
+.record-input:hover {
   background: #83d0c9;
   color: #ffffff;
 }
 
-.play-record {
+.start-playback {
   background: #ffffff;
   border: 1px solid #800080;
   color: #800080;
@@ -149,12 +149,12 @@ body {
   padding: 6px 6px 6px 8px;
 }
 
-.play-record:hover {
+.start-playback:hover {
   background: #800080;
   color: #ffffff;
 }
 
-.stop-record {
+.stop-playback {
   background: #ffffff;
   border: 1px solid #ff3377;
   color: #ff3377;
@@ -164,7 +164,7 @@ body {
   padding: 7px 7px 10px 7px;
 }
 
-.stop-record:hover {
+.stop-playback:hover {
   background: #ff3377;
   color: #ffffff;
 }

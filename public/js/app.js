@@ -8,8 +8,11 @@ $(document).ready(function() {
     time:[],
     key:[]
   };
-  var recording = false;
-  var playingBack = false;
+
+  var state = {
+    recording: false,
+    playingBack: false
+  };
 
 
   /**
@@ -18,7 +21,6 @@ $(document).ready(function() {
   $(document).keypress(keyPressed);
 
   function keyPressed(pressedKey) {
-    console.log(pressedKey.which);
     var key = keyNums[pressedKey.which];
     setKeyData(key);
   }
@@ -65,9 +67,23 @@ $(document).ready(function() {
   //Recording the key presses section.
   /**********************************/
 
-  $('.start-record').on('click', startRecord);
+  $('.record-input').on('click', setRecording);
 
-  $('.stop-record').on('click', stopRecord);
+  $('.stop-playback').on('click', stopRecord);
+
+
+  /**
+   * Toggles the recording feature to the opposite of it's current state.
+   */
+  function setRecording() {
+
+    if ( state.recording ) {
+      stopRecord();
+    } else {
+      startRecord();
+    }
+
+  }
 
 
   /**
@@ -76,29 +92,24 @@ $(document).ready(function() {
    */
   function recordNotes(key) {
 
+    //Checks if the user selects a key to stop the recording.
     checkStopRecord(key);
 
-
-    if(recording) {
+    //If the program is currently recording, adds the key and the time to the keyData object.
+    if(state.recording && !state.playingBack) {
       var time = new Date();
       keyData.time.push(time.getTime() - keyData.start);
       keyData.key.push(key);
     }
-
   }
 
-  function checkStopRecord(key) {
 
+  function checkStopRecord(key) {
     if (timeKeeper.seconds > 59) {
       stopRecord();
     }
-
     if (key === ".space") {
-      if (recording) {
-        stopRecord();
-      } else {
-        startRecord();
-      }
+      setRecording();
     }
   }
 
@@ -108,12 +119,10 @@ $(document).ready(function() {
    */
   function startRecord() {
     var time = new Date();
-    displayTimer();
     keyData.start = time.getTime();
-    recording = true;
-    changeKeyStyle('.start-record');
-    $('.start-record').css({'background': '#f37736', 'border' : '1px solid #f37736', 'color' : '#fff'});
-
+    state.recording = true;
+    displayTimer();
+    $('.record-input').css({'background': '#f37736', 'border' : '1px solid #f37736', 'color' : '#fff'});
   }
 
 
@@ -123,9 +132,10 @@ $(document).ready(function() {
   function stopRecord() {
     var time = new Date();
     keyData.end = time.getTime();
-    recording = false;
-    changeKeyStyle('.stop-record');
-    $('.start-record').removeAttr('style');
+    state.recording = false;
+    $('.start-playback').removeClass('hide');
+    $('.stop-playback').addClass('hide');
+    $('.record-input').removeAttr('style');
     clearInterval(timer);
   }
 
@@ -134,26 +144,30 @@ $(document).ready(function() {
   //Playing back the key presses section.
   /*************************************/
 
-  $('.play-record').on('click', playRecord);
+  $('.start-playback').on('click', playRecord);
 
   /**
    * When the user click's the 'play-record' button, the program plays back the users
    * key clicks in order, with the same timing.
    */
   function playRecord() {
-    if ( !playingBack ) {
-      playingBack = true;
+
+    if ( !state.playingBack && !state.recording) {
+      state.playingBack = true;
       displayTimer();
 
       setTimeout(function() {
-        playingBack = false;
+        state.playingBack = false;
+        $('.start-playback').removeClass('hide');
+        $('.stop-playback').addClass('hide');
         clearInterval(timer);
       }, keyData.end - keyData.start );
 
+      $('.start-playback').addClass('hide');
+      $('.stop-playback').removeClass('hide');
       playback();
     }
 
-    changeKeyStyle('.play-record');
   }
 
 
@@ -180,5 +194,6 @@ $(document).ready(function() {
       playbackTimer(i);
     }
   }
+
 
 });
