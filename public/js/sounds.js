@@ -103,6 +103,7 @@ var keyNums = {
   '44'  : '.comma',
   '46'  : '.period',
   '32'  : '.space',
+  '15'  : '.shift',
 
   //Muted Sounds
   '13'  : '.return',
