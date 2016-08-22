@@ -115,9 +115,6 @@ $(document).ready(function() {
 
 
   function checkStopRecord(key) {
-    if (timeKeeper.seconds > 19) {
-      stopRecord();
-    }
     if (key === ".space" && !state.playingBack) {
       setRecording();
     }
@@ -134,14 +131,10 @@ $(document).ready(function() {
       var time = new Date();
       keyData.start = time.getTime();
       state.recording = true;
-
-
       $('.timeline').removeAttr('style');
-      //$('.timeline').width(0);
-
       displayTimer();
       displayTimeline();
-      $('.record-input').css({'background': '#f37736', 'border': '1px solid #f37736', 'color': '#fff'});
+      $('.record-input').addClass('recording');
     }
 
   }
@@ -154,11 +147,8 @@ $(document).ready(function() {
     var time = new Date();
     keyData.end = time.getTime();
     state.recording = false;
-    $('.record-input').removeAttr('style');
-
-    var width = $('.timeline').width();
-    $('.timeline').css('width', width);
-
+    $('.record-input').removeClass('recording');
+    $('.timeline').stop(); //Stops the timeline animation.
     clearInterval(timer);
   }
 
@@ -219,6 +209,7 @@ $(document).ready(function() {
   }
 
 
+
   function paintKey(key) {
     key = key.split('.')[1];
     if ( state.recording && key != 'space' ) {
@@ -229,8 +220,11 @@ $(document).ready(function() {
 
 
   function displayTimeline() {
-    $('.timeline').empty();
-    $('.timeline').addClass('timeline-width');
+
+    $('.timeline')
+      .empty()
+      .animate({width: '950px'}, 19500, 'linear');
+
   }
 
 

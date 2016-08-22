@@ -249,7 +249,9 @@ body {
   background: #f1f5f6;
   position: absolute;
   margin-top: 50px;
-  transition: width 20s linear;
+  /*transition: width 20s linear;*/
+  float: left;
+  clear: both;
 }
 
 

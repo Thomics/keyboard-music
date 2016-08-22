@@ -1,6 +1,7 @@
 var timeKeeper = {
   timeOffset: 0,
-  leftOverTime: 0
+  leftOverTime: 0,
+  stop: false
 };
 
 var timer;
@@ -26,6 +27,7 @@ function setTime() {
   var milliseconds = time.getMilliseconds();
 
   if ( seconds > 19 ) {
+    timeKeeper.stop = true;
     clearInterval(timer);
   }
 
