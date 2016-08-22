@@ -17,6 +17,7 @@ $(document).ready(function() {
 
   var state = {
     recording: false,
+    hasRecording: false,
     playingBack: false
   };
 
@@ -27,6 +28,7 @@ $(document).ready(function() {
   $(document).keypress(keyPressed);
 
   function keyPressed(pressedKey) {
+    //Gets the key's class from the object of key class pairs.
     var key = keyNums[pressedKey.which];
     setKeyData(key);
     paintKey(key);
@@ -126,14 +128,22 @@ $(document).ready(function() {
    * Starts the program recording users keypresses.
    */
   function startRecord() {
+
     if( !state.playingBack ) {
       keyData.clearData();
       var time = new Date();
       keyData.start = time.getTime();
       state.recording = true;
+
+
+      $('.timeline').removeAttr('style');
+      //$('.timeline').width(0);
+
       displayTimer();
+      displayTimeline();
       $('.record-input').css({'background': '#f37736', 'border': '1px solid #f37736', 'color': '#fff'});
     }
+
   }
 
 
@@ -144,10 +154,11 @@ $(document).ready(function() {
     var time = new Date();
     keyData.end = time.getTime();
     state.recording = false;
-    //$('.start-playback').removeClass('hide');
-    //$('.stop-playback').addClass('hide');
     $('.record-input').removeAttr('style');
-    $('.timeline').stop();
+
+    var width = $('.timeline').width();
+    $('.timeline').css('width', width);
+
     clearInterval(timer);
   }
 
@@ -208,14 +219,18 @@ $(document).ready(function() {
   }
 
 
-
   function paintKey(key) {
     key = key.split('.')[1];
-    if ( state.recording ) {
+    if ( state.recording && key != 'space' ) {
       var width = $('.timeline').width();
       $('.timeline').append('<div class="key-stroke ' + key + '" style="left: ' + width + 'px;" </div>');
-
     }
+  }
+
+
+  function displayTimeline() {
+    $('.timeline').empty();
+    $('.timeline').addClass('timeline-width');
   }
 
 

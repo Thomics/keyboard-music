@@ -13,7 +13,6 @@ function displayTimer() {
   timeKeeper.timeOffset = time.getSeconds();
   console.log(timeKeeper.timeOffset);
   timer = setInterval(setTime, 20);
-  displayTimeline();
 }
 
 /**
@@ -40,7 +39,3 @@ function setTime() {
 }
 
 
-function displayTimeline() {
-  $('.timeline').addClass('timeline-width');
-
-}

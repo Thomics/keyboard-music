@@ -252,6 +252,7 @@ body {
   transition: width 20s linear;
 }
 
+
 .timeline-width {
   width: 950px;
 }
@@ -264,7 +265,6 @@ body {
   float: left;
   top: 0;
 }
-
 
 
 /*********/
